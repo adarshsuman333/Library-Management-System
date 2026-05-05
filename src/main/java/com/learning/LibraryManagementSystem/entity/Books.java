@@ -100,4 +100,37 @@ public class Books {
             inverseJoinColumns = {@JoinColumn(name = "publisher_id")}
     )
     private Set<Publisher> publishers = new HashSet<>();
+
+    //If we are removing the publisher from the set, we are removing the books too because both are bidirectional. So, we are removing things bidirectionally.
+
+    public void removePublisher(Publisher publisher){
+        this.publishers.remove(publisher);
+        publisher.getBooks().remove(publishers);
+    }
+
+    public void addPublisher(Publisher publisher){
+        this.publishers.add(publisher);
+        publisher.getBooks().add(this);
+    }
+
+    public void removeAuthor(Author author){
+        this.authors.remove(author);
+        author.getBooks().remove(authors);
+    }
+
+    public void addAuthors(Author author){
+        this.authors.add(author);
+        author.getBooks().add(this);
+    }
+
+    public void removeCategory(Category category){
+        this.categories.remove(category);
+        category.getBooks().remove(categories);
+    }
+
+    public void addCategory(Category category){
+        this.categories.add(category);
+        category.getBooks().add(this);
+    }
+
 }
