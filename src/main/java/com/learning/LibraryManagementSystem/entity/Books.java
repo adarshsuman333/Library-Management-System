@@ -35,6 +35,12 @@ public class Books {
     )
     private Set<Category> categories = new HashSet<>();
 
+    public Books(String ISBN, String name, String description) {
+        this.ISBN = ISBN;
+        this.name = name;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }

@@ -18,7 +18,8 @@ public class Category {
     @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
     private Set<Books> books = new HashSet<>();
 
-    public Category() {
+    public Category(String name) {
+        this.name = name;
     }
 
     public Long getId() {

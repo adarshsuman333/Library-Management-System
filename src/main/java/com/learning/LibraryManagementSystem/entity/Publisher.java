@@ -15,7 +15,8 @@ public class Publisher {
     @Column(name = "name", length = 50, nullable = false, unique = true)
     private String name;
 
-    public Publisher() {
+    public Publisher(String name) {
+        this.name = name;
     }
 
     public Long getId() {
